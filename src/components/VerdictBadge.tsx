@@ -25,10 +25,13 @@ export function VerdictBadge({
   status,
   showDescription = false,
   compact = false,
+  descriptionKey,
 }: {
   status: VeganStatus;
   showDescription?: boolean;
   compact?: boolean;
+  /** Sostituisce la descrizione standard (basata su Open Food Facts). */
+  descriptionKey?: string;
 }) {
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -54,7 +57,7 @@ export function VerdictBadge({
       </Text>
       {showDescription && (
         <Text style={[styles.description, { color: palette.text }]}>
-          {t(`verdict.${status}Desc`)}
+          {t(descriptionKey ?? `verdict.${status}Desc`)}
         </Text>
       )}
     </View>

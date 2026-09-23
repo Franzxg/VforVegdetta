@@ -23,19 +23,17 @@ export interface Product {
   analysisTags: string[];
 }
 
+/** Da dove arrivano i dati: Open Food Facts o revisione dei volontari. */
+export type ProductSource = 'off' | 'community';
+
 export type LookupResult =
   | {
       kind: 'found';
       product: Product;
       imageUrl: string | null;
-      offline: false;
-    }
-  | {
-      kind: 'found';
-      product: Product;
-      imageUrl: null;
-      offline: true;
-      cachedAt: string;
+      source: ProductSource;
+      /** Valorizzato solo se i dati arrivano dalla cache offline. */
+      cachedAt: string | null;
     }
   | { kind: 'not_found' }
   | { kind: 'invalid_barcode' }

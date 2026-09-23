@@ -127,7 +127,7 @@ function ProductDetails({
       style={{ backgroundColor: colors.surface }}
       contentContainerStyle={styles.content}
     >
-      {result.offline && (
+      {result.cachedAt != null && (
         <View
           style={[
             styles.offlineBanner,
@@ -160,7 +160,13 @@ function ProductDetails({
       </Text>
 
       <View style={styles.section}>
-        <VerdictBadge status={product.veganStatus} showDescription />
+        <VerdictBadge
+          status={product.veganStatus}
+          showDescription
+          descriptionKey={
+            result.source === 'community' ? 'verdict.communityDesc' : undefined
+          }
+        />
       </View>
 
       {flagged.length > 0 && (
@@ -185,7 +191,9 @@ function ProductDetails({
       </Card>
 
       <Text style={[styles.source, { color: colors.textSecondary }]}>
-        {t('product.source')}
+        {result.source === 'community'
+          ? t('product.sourceCommunity')
+          : t('product.source')}
       </Text>
 
       <View style={styles.actions}>

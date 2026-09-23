@@ -55,6 +55,7 @@ const en: TranslationShape = {
     offlineSince: 'Saved on {{date}}',
     proposeCorrection: 'Suggest a correction',
     source: 'Source: Open Food Facts',
+    sourceCommunity: 'Source: checked by V for Vegdetta volunteers',
     imageAlt: 'Product photo',
     placeholderAlt: 'Image not available',
     scanAnother: 'Scan another product',
@@ -67,6 +68,8 @@ const en: TranslationShape = {
     veganDesc:
       'According to Open Food Facts no ingredient is of animal origin.',
     non_veganDesc: 'Contains at least one ingredient of animal origin.',
+    communityDesc:
+      'Verdict assigned by a volunteer after checking the label photos.',
     maybeDesc: 'Some ingredients might be of animal origin: check the label.',
     unknownDesc: 'Open Food Facts does not have enough information to tell.',
   },

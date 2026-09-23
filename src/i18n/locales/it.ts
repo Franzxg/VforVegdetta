@@ -53,6 +53,7 @@ const it = {
     offlineSince: 'Salvati il {{date}}',
     proposeCorrection: 'Proponi correzione',
     source: 'Fonte: Open Food Facts',
+    sourceCommunity: 'Fonte: verificato dai volontari di V for Vegdetta',
     imageAlt: 'Foto del prodotto',
     placeholderAlt: 'Immagine non disponibile',
     scanAnother: 'Scansiona un altro prodotto',
@@ -65,6 +66,8 @@ const it = {
     veganDesc:
       'Secondo Open Food Facts nessun ingrediente è di origine animale.',
     non_veganDesc: 'Contiene almeno un ingrediente di origine animale.',
+    communityDesc:
+      "Verdetto assegnato da un volontario dopo aver controllato le foto dell'etichetta.",
     maybeDesc:
       "Alcuni ingredienti potrebbero essere di origine animale: controlla l'etichetta.",
     unknownDesc:
