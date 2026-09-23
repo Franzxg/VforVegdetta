@@ -3,31 +3,78 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useAuth } from '../context/AuthContext';
+import type { RootStackParamList } from '../navigation/types';
 import { useTheme } from '../theme/ThemeContext';
 
-type MenuRoute = 'Home' | 'ProposeProduct' | 'Settings';
+type MenuRoute = Exclude<
+  keyof RootStackParamList,
+  'Scan' | 'Product' | 'Login'
+>;
 
-const ITEMS: { route: MenuRoute; labelKey: string }[] = [
-  { route: 'Home', labelKey: 'nav.home' },
-  { route: 'ProposeProduct', labelKey: 'nav.proposeProduct' },
-  { route: 'Settings', labelKey: 'nav.settings' },
-];
+interface MenuItem {
+  key: string;
+  label: string;
+  onPress: () => void;
+  /** Puntino di notifica (es. elementi in attesa di revisione). */
+  badge?: boolean;
+}
 
-/** Bottone "hamburger" nell'header con il menu principale dell'app. */
+/**
+ * Azioni dell'header (§12): bottone di accesso (o nome dell'utente connesso)
+ * e menu principale con le voci visibili in base al ruolo.
+ */
 export function HeaderMenu() {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
+  const { session, logout } = useAuth();
   const [open, setOpen] = useState(false);
 
-  const go = (route: MenuRoute) => {
-    setOpen(false);
-    navigation.navigate(route);
-  };
+  const go = (route: MenuRoute) => () => navigation.navigate(route);
+
+  const items: MenuItem[] = [
+    { key: 'home', label: t('nav.home'), onPress: go('Home') },
+    {
+      key: 'propose',
+      label: t('nav.proposeProduct'),
+      onPress: go('ProposeProduct'),
+    },
+  ];
+  if (!session) {
+    items.push({
+      key: 'volunteer',
+      label: t('nav.becomeVolunteer'),
+      onPress: go('BecomeVolunteer'),
+    });
+  }
+  items.push({
+    key: 'settings',
+    label: t('nav.settings'),
+    onPress: go('Settings'),
+  });
+  if (session) {
+    items.push({ key: 'logout', label: t('auth.logout'), onPress: logout });
+  }
 
   return (
-    <>
+    <View style={styles.row}>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={session ? t('auth.account') : t('auth.login')}
+        hitSlop={8}
+        onPress={() => navigation.navigate('Login')}
+        style={[styles.account, { borderColor: colors.textPrimary }]}
+      >
+        <Text
+          numberOfLines={1}
+          style={[styles.accountText, { color: colors.textPrimary }]}
+        >
+          {session ? session.name.split(' ')[0] : t('auth.login')}
+        </Text>
+      </Pressable>
+
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={t('nav.menu')}
@@ -35,7 +82,11 @@ export function HeaderMenu() {
         onPress={() => setOpen(true)}
       >
         <Text style={[styles.icon, { color: colors.textPrimary }]}>☰</Text>
+        {items.some(item => item.badge) && (
+          <View style={[styles.iconDot, { backgroundColor: colors.accent }]} />
+        )}
       </Pressable>
+
       <Modal
         visible={open}
         transparent
@@ -57,32 +108,64 @@ export function HeaderMenu() {
               },
             ]}
           >
-            {ITEMS.map(item => (
+            {items.map(item => (
               <Pressable
-                key={item.route}
+                key={item.key}
                 accessibilityRole="menuitem"
-                onPress={() => go(item.route)}
+                onPress={() => {
+                  setOpen(false);
+                  item.onPress();
+                }}
                 style={({ pressed }) => [
                   styles.item,
                   pressed && { backgroundColor: colors.surface },
                 ]}
               >
                 <Text style={[styles.itemText, { color: colors.textPrimary }]}>
-                  {t(item.labelKey)}
+                  {item.label}
                 </Text>
+                {item.badge && (
+                  <View
+                    style={[styles.dot, { backgroundColor: colors.accent }]}
+                  />
+                )}
               </Pressable>
             ))}
           </View>
         </Pressable>
       </Modal>
-    </>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+  },
+  account: {
+    borderWidth: 1,
+    borderRadius: 999,
+    paddingVertical: 4,
+    paddingHorizontal: 12,
+    maxWidth: 120,
+  },
+  accountText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
   icon: {
     fontSize: 24,
     paddingHorizontal: 4,
+  },
+  iconDot: {
+    position: 'absolute',
+    top: 2,
+    right: 0,
+    width: 9,
+    height: 9,
+    borderRadius: 5,
   },
   backdrop: {
     flex: 1,
@@ -90,18 +173,27 @@ const styles = StyleSheet.create({
   },
   sheet: {
     marginRight: 12,
-    minWidth: 220,
+    minWidth: 240,
     borderRadius: 14,
     borderWidth: 1,
     paddingVertical: 6,
     overflow: 'hidden',
   },
   item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
     paddingVertical: 14,
     paddingHorizontal: 18,
   },
   itemText: {
     fontSize: 16,
     fontWeight: '500',
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
   },
 });

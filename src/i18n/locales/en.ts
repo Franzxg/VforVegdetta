@@ -15,6 +15,8 @@ const en: TranslationShape = {
     settings: 'Settings',
     menu: 'Menu',
     closeMenu: 'Close menu',
+    login: 'Log in',
+    becomeVolunteer: 'Become a volunteer',
   },
   home: {
     title: 'Is this product vegan?',
@@ -120,6 +122,54 @@ const en: TranslationShape = {
       'Product {{barcode}} is in the queue: a volunteer will check the photos and complete the data.',
     backHome: 'Back to Home',
     proposeAnother: 'Suggest another product',
+  },
+  auth: {
+    login: 'Log in',
+    account: 'Your account',
+    intro:
+      'Access reserved for volunteers and administrators. No account is needed to scan or suggest products.',
+    email: 'Email',
+    password: 'Password',
+    submit: 'Log in',
+    logout: 'Log out',
+    loggedInAs: 'Logged in as {{name}}',
+    role: {
+      admin: 'Volunteer',
+      superadmin: 'Super admin',
+    },
+    error: {
+      invalid: 'Wrong email or password.',
+      pending: 'Your volunteer application is still waiting for approval.',
+      rejected: 'Your volunteer application was not approved.',
+    },
+    notVolunteer: 'Not a volunteer yet?',
+  },
+  form: {
+    required: 'Required field.',
+    invalidEmail: 'Enter a valid email address.',
+    passwordTooShort: 'At least {{count}} characters.',
+    passwordMismatch: "Passwords don't match.",
+  },
+  volunteer: {
+    intro:
+      'Volunteers check the photos of suggested products and complete their data. Fill in the application: once approved you can log in with your email and password.',
+    name: 'Full name',
+    contactHint: "You'll use it to log in after approval.",
+    availability: 'Availability',
+    availabilityPlaceholder: 'E.g. weekends, weekday evenings',
+    motivation: 'Why do you want to volunteer?',
+    motivationPlaceholder: 'A few lines about you',
+    confirmPassword: 'Confirm password',
+    submit: 'Send application',
+    successTitle: 'Application sent!',
+    successText:
+      'An administrator will review it soon. Once approved you can log in with {{contact}}.',
+    error: {
+      already_volunteer:
+        'A volunteer with this email already exists: log in from the login screen.',
+      already_pending:
+        'You already have a pending application with this email.',
+    },
   },
   settings: {
     theme: 'Theme',

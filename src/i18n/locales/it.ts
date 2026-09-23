@@ -13,6 +13,8 @@ const it = {
     settings: 'Impostazioni',
     menu: 'Menu',
     closeMenu: 'Chiudi menu',
+    login: 'Accesso',
+    becomeVolunteer: 'Diventa volontario',
   },
   home: {
     title: 'Questo prodotto è vegano?',
@@ -120,6 +122,54 @@ const it = {
       'Il prodotto {{barcode}} è in coda: un volontario controllerà le foto e completerà i dati.',
     backHome: 'Torna alla Home',
     proposeAnother: 'Proponi un altro prodotto',
+  },
+  auth: {
+    login: 'Accedi',
+    account: 'Il tuo account',
+    intro:
+      'Accesso riservato a volontari e amministratori. Per scansionare o proporre prodotti non serve alcun account.',
+    email: 'Email',
+    password: 'Password',
+    submit: 'Accedi',
+    logout: 'Esci',
+    loggedInAs: 'Accesso effettuato come {{name}}',
+    role: {
+      admin: 'Volontario',
+      superadmin: 'Super admin',
+    },
+    error: {
+      invalid: 'Email o password non corrette.',
+      pending:
+        'La tua candidatura come volontario è ancora in attesa di approvazione.',
+      rejected: 'La tua candidatura come volontario non è stata approvata.',
+    },
+    notVolunteer: 'Non sei ancora volontario?',
+  },
+  form: {
+    required: 'Campo obbligatorio.',
+    invalidEmail: 'Inserisci un indirizzo email valido.',
+    passwordTooShort: 'Almeno {{count}} caratteri.',
+    passwordMismatch: 'Le password non coincidono.',
+  },
+  volunteer: {
+    intro:
+      'I volontari controllano le foto dei prodotti proposti e completano i dati. Compila la candidatura: quando verrà approvata potrai accedere con email e password.',
+    name: 'Nome e cognome',
+    contactHint: 'La userai per accedere dopo l’approvazione.',
+    availability: 'Disponibilità',
+    availabilityPlaceholder: 'Es. weekend, sere infrasettimanali',
+    motivation: 'Perché vuoi diventare volontario?',
+    motivationPlaceholder: 'Qualche riga su di te',
+    confirmPassword: 'Conferma password',
+    submit: 'Invia candidatura',
+    successTitle: 'Candidatura inviata!',
+    successText:
+      'Un amministratore la valuterà a breve. Quando sarà approvata potrai accedere con {{contact}}.',
+    error: {
+      already_volunteer:
+        'Esiste già un volontario con questa email: accedi dalla schermata di login.',
+      already_pending: 'Hai già una candidatura in attesa con questa email.',
+    },
   },
   settings: {
     theme: 'Tema',

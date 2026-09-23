@@ -8,7 +8,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HeaderMenu } from '../components/HeaderMenu';
+import { BecomeVolunteerScreen } from '../screens/BecomeVolunteerScreen';
 import { HomeScreen } from '../screens/HomeScreen';
+import { LoginScreen } from '../screens/LoginScreen';
 import { ProductScreen } from '../screens/ProductScreen';
 import { ProposeProductScreen } from '../screens/ProposeProductScreen';
 import { ScanScreen } from '../screens/ScanScreen';
@@ -69,6 +71,16 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
           name="ProposeProduct"
           component={ProposeProductScreen}
           options={{ title: t('nav.proposeProduct') }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ title: t('nav.login') }}
+        />
+        <Stack.Screen
+          name="BecomeVolunteer"
+          component={BecomeVolunteerScreen}
+          options={{ title: t('nav.becomeVolunteer') }}
         />
         <Stack.Screen
           name="Settings"
