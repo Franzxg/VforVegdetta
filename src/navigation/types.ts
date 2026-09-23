@@ -9,6 +9,7 @@ export type RootStackParamList = {
   BecomeVolunteer: undefined;
   VolunteerPanel: undefined;
   ProposalReview: { proposalId: string };
+  SuperAdminPanel: undefined;
   Settings: undefined;
 };
 

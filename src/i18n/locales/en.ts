@@ -19,6 +19,7 @@ const en: TranslationShape = {
     becomeVolunteer: 'Become a volunteer',
     volunteerPanel: 'Volunteer Panel',
     proposalReview: 'Review proposal',
+    superAdminPanel: 'Super Admin Panel',
   },
   home: {
     title: 'Is this product vegan?',
@@ -212,6 +213,17 @@ const en: TranslationShape = {
     alreadyRejected: 'Proposal already rejected.',
     notFoundTitle: 'Proposal not found',
     notFoundText: 'This proposal no longer exists.',
+  },
+  superAdmin: {
+    pendingRequests: 'Pending applications ({{count}})',
+    noRequestsTitle: 'No pending applications',
+    noRequestsText: 'New "Become a volunteer" applications will show up here.',
+    volunteers: 'Active volunteers ({{count}})',
+    noVolunteers: 'No volunteers yet.',
+    motivation: 'Motivation',
+    approve: 'Approve',
+    reject: 'Reject',
+    confirmReject: "Reject {{name}}'s application?",
   },
   settings: {
     theme: 'Theme',

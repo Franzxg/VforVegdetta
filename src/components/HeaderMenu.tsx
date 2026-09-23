@@ -30,8 +30,8 @@ export function HeaderMenu() {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
-  const { session, isAdmin, logout } = useAuth();
-  const { pendingProposals } = useCommunity();
+  const { session, isAdmin, isSuperAdmin, logout } = useAuth();
+  const { pendingProposals, pendingRequests } = useCommunity();
   const [open, setOpen] = useState(false);
 
   const go = (route: MenuRoute) => () => navigation.navigate(route);
@@ -50,6 +50,14 @@ export function HeaderMenu() {
       label: t('nav.volunteerPanel'),
       onPress: go('VolunteerPanel'),
       badge: pendingProposals > 0,
+    });
+  }
+  if (isSuperAdmin) {
+    items.push({
+      key: 'superAdminPanel',
+      label: t('nav.superAdminPanel'),
+      onPress: go('SuperAdminPanel'),
+      badge: pendingRequests > 0,
     });
   }
   if (!session) {

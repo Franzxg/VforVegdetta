@@ -17,7 +17,7 @@ type LoginError = 'invalid' | 'pending' | 'rejected';
 export function LoginScreen({ navigation }: RootScreenProps<'Login'>) {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const { session, login, logout } = useAuth();
+  const { session, isSuperAdmin, login, logout } = useAuth();
 
   const [contact, setContact] = useState('');
   const [password, setPassword] = useState('');
@@ -43,11 +43,15 @@ export function LoginScreen({ navigation }: RootScreenProps<'Login'>) {
     setBusy(true);
     const result = await login(contact, password);
     setBusy(false);
-    if (result === 'ok') {
+    if (result.kind === 'ok') {
       setPassword('');
-      navigation.replace('VolunteerPanel');
+      navigation.replace(
+        result.session.role === 'superadmin'
+          ? 'SuperAdminPanel'
+          : 'VolunteerPanel',
+      );
     } else {
-      setLoginError(result);
+      setLoginError(result.kind);
     }
   };
 
@@ -71,6 +75,12 @@ export function LoginScreen({ navigation }: RootScreenProps<'Login'>) {
           title={t('nav.volunteerPanel')}
           onPress={() => navigation.navigate('VolunteerPanel')}
         />
+        {isSuperAdmin && (
+          <AppButton
+            title={t('nav.superAdminPanel')}
+            onPress={() => navigation.navigate('SuperAdminPanel')}
+          />
+        )}
         <AppButton variant="ghost" title={t('auth.logout')} onPress={logout} />
       </View>
     );

@@ -22,7 +22,7 @@ interface AuthContextValue {
   isAdmin: boolean;
   isSuperAdmin: boolean;
   hasRole: (role: Role) => boolean;
-  login: (contact: string, password: string) => Promise<LoginResult['kind']>;
+  login: (contact: string, password: string) => Promise<LoginResult>;
   logout: () => Promise<void>;
   ready: boolean;
 }
@@ -57,14 +57,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = useCallback(
     async (contact: string, password: string) => {
       if (!data) {
-        return 'invalid' as const;
+        return { kind: 'invalid' } as const;
       }
       const result = authenticate(data, contact, password);
       if (result.kind === 'ok') {
         setSession(result.session);
         await writeJson(StorageKeys.session, result.session);
       }
-      return result.kind;
+      return result;
     },
     [data],
   );

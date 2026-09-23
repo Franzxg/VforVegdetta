@@ -16,6 +16,7 @@ import { ProposalReviewScreen } from '../screens/ProposalReviewScreen';
 import { ProposeProductScreen } from '../screens/ProposeProductScreen';
 import { ScanScreen } from '../screens/ScanScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
+import { SuperAdminPanelScreen } from '../screens/SuperAdminPanelScreen';
 import { VolunteerPanelScreen } from '../screens/VolunteerPanelScreen';
 import { useTheme } from '../theme/ThemeContext';
 import type { RootStackParamList } from './types';
@@ -93,6 +94,11 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
           name="ProposalReview"
           component={ProposalReviewScreen}
           options={{ title: t('nav.proposalReview') }}
+        />
+        <Stack.Screen
+          name="SuperAdminPanel"
+          component={SuperAdminPanelScreen}
+          options={{ title: t('nav.superAdminPanel') }}
         />
         <Stack.Screen
           name="Settings"

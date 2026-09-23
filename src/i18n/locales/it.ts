@@ -17,6 +17,7 @@ const it = {
     becomeVolunteer: 'Diventa volontario',
     volunteerPanel: 'Pannello Volontario',
     proposalReview: 'Revisione proposta',
+    superAdminPanel: 'Pannello Super Admin',
   },
   home: {
     title: 'Questo prodotto è vegano?',
@@ -213,6 +214,18 @@ const it = {
     alreadyRejected: 'Proposta già rifiutata.',
     notFoundTitle: 'Proposta non trovata',
     notFoundText: 'Questa proposta non esiste più.',
+  },
+  superAdmin: {
+    pendingRequests: 'Candidature in attesa ({{count}})',
+    noRequestsTitle: 'Nessuna candidatura in attesa',
+    noRequestsText:
+      'Le nuove candidature "Diventa volontario" compariranno qui.',
+    volunteers: 'Volontari attivi ({{count}})',
+    noVolunteers: 'Ancora nessun volontario.',
+    motivation: 'Motivazione',
+    approve: 'Approva',
+    reject: 'Rifiuta',
+    confirmReject: 'Rifiutare la candidatura di {{name}}?',
   },
   settings: {
     theme: 'Tema',
