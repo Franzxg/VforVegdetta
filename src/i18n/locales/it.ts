@@ -88,9 +88,38 @@ const it = {
       'Open Food Facts non risponde correttamente in questo momento. Riprova tra poco.',
   },
   propose: {
-    comingSoon:
-      'Il modulo di proposta prodotto (foto, note, nome facoltativo) sarà disponibile a breve.',
+    intro:
+      'Non trovi un prodotto? Inserisci il codice e scatta tre foto: un volontario le controllerà e aggiungerà il prodotto. Non serve alcun account.',
     barcodeLabel: 'Codice a barre',
+    photosTitle: 'Foto richieste',
+    photo: {
+      product: 'Foto del prodotto',
+      barcode: 'Foto del codice a barre',
+      ingredients: 'Foto degli ingredienti',
+    },
+    photoHint: {
+      product: 'Il fronte della confezione, con il nome ben visibile.',
+      barcode: 'Il codice a barre intero e a fuoco.',
+      ingredients: "L'elenco ingredienti completo e leggibile.",
+    },
+    takePhoto: 'Scatta',
+    retake: 'Rifai',
+    fromGallery: 'Galleria',
+    photosMissing: 'Servono tutte e tre le foto per inviare la proposta.',
+    cameraDenied:
+      'Accesso alla fotocamera negato: abilitalo dalle impostazioni oppure scegli la foto dalla galleria.',
+    photoError: 'Non sono riuscito ad acquisire la foto. Riprova.',
+    saveError: 'Salvataggio non riuscito. Riprova.',
+    nameLabel: 'Il tuo nome (facoltativo)',
+    nameHint: 'Serve solo per ringraziarti: non crea alcun account.',
+    notesLabel: 'Note (facoltative)',
+    notesPlaceholder: 'Es. dove lo hai trovato, dubbi su un ingrediente…',
+    submit: 'Invia proposta',
+    successTitle: 'Grazie per la proposta!',
+    successText:
+      'Il prodotto {{barcode}} è in coda: un volontario controllerà le foto e completerà i dati.',
+    backHome: 'Torna alla Home',
+    proposeAnother: 'Proponi un altro prodotto',
   },
   settings: {
     theme: 'Tema',

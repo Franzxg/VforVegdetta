@@ -88,9 +88,38 @@ const en: TranslationShape = {
       'Open Food Facts is not responding correctly right now. Try again shortly.',
   },
   propose: {
-    comingSoon:
-      'The product proposal form (photos, notes, optional name) will be available soon.',
+    intro:
+      "Can't find a product? Enter the code and take three photos: a volunteer will check them and add the product. No account needed.",
     barcodeLabel: 'Barcode',
+    photosTitle: 'Required photos',
+    photo: {
+      product: 'Product photo',
+      barcode: 'Barcode photo',
+      ingredients: 'Ingredients photo',
+    },
+    photoHint: {
+      product: 'The front of the package, with the name clearly visible.',
+      barcode: 'The whole barcode, in focus.',
+      ingredients: 'The full, readable ingredient list.',
+    },
+    takePhoto: 'Take photo',
+    retake: 'Retake',
+    fromGallery: 'Gallery',
+    photosMissing: 'All three photos are required to send the proposal.',
+    cameraDenied:
+      'Camera access denied: enable it from settings or pick the photo from the gallery.',
+    photoError: "Couldn't get the photo. Try again.",
+    saveError: 'Saving failed. Try again.',
+    nameLabel: 'Your name (optional)',
+    nameHint: "It's only used to thank you: no account is created.",
+    notesLabel: 'Notes (optional)',
+    notesPlaceholder: 'E.g. where you found it, doubts about an ingredient…',
+    submit: 'Send proposal',
+    successTitle: 'Thanks for your proposal!',
+    successText:
+      'Product {{barcode}} is in the queue: a volunteer will check the photos and complete the data.',
+    backHome: 'Back to Home',
+    proposeAnother: 'Suggest another product',
   },
   settings: {
     theme: 'Theme',
