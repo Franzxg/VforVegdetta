@@ -7,6 +7,8 @@ export type RootStackParamList = {
   ProposeProduct: { barcode?: string } | undefined;
   Login: undefined;
   BecomeVolunteer: undefined;
+  VolunteerPanel: undefined;
+  ProposalReview: { proposalId: string };
   Settings: undefined;
 };
 

@@ -12,9 +12,11 @@ import { BecomeVolunteerScreen } from '../screens/BecomeVolunteerScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { ProductScreen } from '../screens/ProductScreen';
+import { ProposalReviewScreen } from '../screens/ProposalReviewScreen';
 import { ProposeProductScreen } from '../screens/ProposeProductScreen';
 import { ScanScreen } from '../screens/ScanScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
+import { VolunteerPanelScreen } from '../screens/VolunteerPanelScreen';
 import { useTheme } from '../theme/ThemeContext';
 import type { RootStackParamList } from './types';
 
@@ -81,6 +83,16 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
           name="BecomeVolunteer"
           component={BecomeVolunteerScreen}
           options={{ title: t('nav.becomeVolunteer') }}
+        />
+        <Stack.Screen
+          name="VolunteerPanel"
+          component={VolunteerPanelScreen}
+          options={{ title: t('nav.volunteerPanel') }}
+        />
+        <Stack.Screen
+          name="ProposalReview"
+          component={ProposalReviewScreen}
+          options={{ title: t('nav.proposalReview') }}
         />
         <Stack.Screen
           name="Settings"

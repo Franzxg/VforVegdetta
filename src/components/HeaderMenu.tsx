@@ -4,12 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../context/AuthContext';
+import { useCommunity } from '../context/CommunityContext';
 import type { RootStackParamList } from '../navigation/types';
 import { useTheme } from '../theme/ThemeContext';
 
 type MenuRoute = Exclude<
   keyof RootStackParamList,
-  'Scan' | 'Product' | 'Login'
+  'Scan' | 'Product' | 'Login' | 'ProposalReview'
 >;
 
 interface MenuItem {
@@ -29,7 +30,8 @@ export function HeaderMenu() {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
-  const { session, logout } = useAuth();
+  const { session, isAdmin, logout } = useAuth();
+  const { pendingProposals } = useCommunity();
   const [open, setOpen] = useState(false);
 
   const go = (route: MenuRoute) => () => navigation.navigate(route);
@@ -42,6 +44,14 @@ export function HeaderMenu() {
       onPress: go('ProposeProduct'),
     },
   ];
+  if (isAdmin) {
+    items.push({
+      key: 'volunteerPanel',
+      label: t('nav.volunteerPanel'),
+      onPress: go('VolunteerPanel'),
+      badge: pendingProposals > 0,
+    });
+  }
   if (!session) {
     items.push({
       key: 'volunteer',

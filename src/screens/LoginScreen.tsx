@@ -45,7 +45,7 @@ export function LoginScreen({ navigation }: RootScreenProps<'Login'>) {
     setBusy(false);
     if (result === 'ok') {
       setPassword('');
-      navigation.goBack();
+      navigation.replace('VolunteerPanel');
     } else {
       setLoginError(result);
     }
@@ -67,6 +67,10 @@ export function LoginScreen({ navigation }: RootScreenProps<'Login'>) {
             {t(`auth.role.${session.role}`)}
           </Text>
         </View>
+        <AppButton
+          title={t('nav.volunteerPanel')}
+          onPress={() => navigation.navigate('VolunteerPanel')}
+        />
         <AppButton variant="ghost" title={t('auth.logout')} onPress={logout} />
       </View>
     );
