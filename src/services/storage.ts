@@ -4,6 +4,10 @@ export const StorageKeys = {
   themePreference: 'settings.theme',
   language: 'settings.language',
   scanCache: 'scanCache',
+  communityData: 'community.data',
+  session: 'auth.session',
+  /** Prefisso: le foto di ogni proposta hanno una chiave dedicata. */
+  proposalPhotos: 'community.photos.',
 } as const;
 
 export async function readJson<T>(key: string): Promise<T | null> {
@@ -29,4 +33,8 @@ export async function readString(key: string): Promise<string | null> {
 
 export async function writeString(key: string, value: string): Promise<void> {
   await AsyncStorage.setItem(key, value);
+}
+
+export async function removeKey(key: string): Promise<void> {
+  await AsyncStorage.removeItem(key);
 }
