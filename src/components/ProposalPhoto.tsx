@@ -2,10 +2,9 @@ import React from 'react';
 import { Image, ImageStyle, StyleProp, StyleSheet } from 'react-native';
 import { SEED_PHOTO } from '../types/community';
 import { useTheme } from '../theme/ThemeContext';
+import { useLogo } from '../theme/logo';
 
-const placeholder = require('../assets/placeholder-vegdetta.png');
-
-/** Mostra una foto di proposta; le foto dei dati seed usano il placeholder. */
+/** Mostra una foto di proposta; le foto dei dati seed usano il logo. */
 export function ProposalPhoto({
   uri,
   label,
@@ -18,13 +17,18 @@ export function ProposalPhoto({
   fit?: 'cover' | 'contain';
 }) {
   const { colors } = useTheme();
+  const logo = useLogo();
   const isSeed = uri === SEED_PHOTO;
   return (
     <Image
       accessibilityLabel={label}
-      source={isSeed ? placeholder : { uri }}
+      source={isSeed ? logo : { uri }}
       resizeMode={isSeed ? 'contain' : fit}
-      style={[styles.image, { backgroundColor: colors.surface }, style]}
+      style={[
+        styles.image,
+        !isSeed && { backgroundColor: colors.surface },
+        style,
+      ]}
     />
   );
 }

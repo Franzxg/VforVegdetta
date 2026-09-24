@@ -8,7 +8,7 @@ export const PHOTO_KINDS: PhotoKind[] = ['product', 'barcode', 'ingredients'];
 
 /**
  * Foto di una proposta: data URI base64 oppure `SEED_PHOTO` per i dati
- * dimostrativi (mostrati con l'illustrazione placeholder).
+ * dimostrativi (mostrati con il logo dell'app).
  */
 export type ProposalPhotos = Record<PhotoKind, string>;
 

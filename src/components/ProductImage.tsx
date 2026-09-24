@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
-
-const placeholder = require('../assets/placeholder-vegdetta.png');
+import { useLogo } from '../theme/logo';
 
 /**
  * Mostra la foto del prodotto oppure, se assente o non caricabile,
- * l'illustrazione placeholder (§8.1).
+ * il logo dell'app nella variante chiara o scura (§8.1).
  */
 export function ProductImage({
   uri,
@@ -18,6 +17,7 @@ export function ProductImage({
 }) {
   const { t } = useTranslation();
   const { colors } = useTheme();
+  const logo = useLogo();
   const [failed, setFailed] = useState(false);
   const showPhoto = uri != null && !failed;
 
@@ -26,12 +26,14 @@ export function ProductImage({
       accessibilityLabel={
         showPhoto ? t('product.imageAlt') : t('product.placeholderAlt')
       }
-      source={showPhoto ? { uri } : placeholder}
+      source={showPhoto ? { uri } : logo}
       onError={() => setFailed(true)}
       resizeMode="contain"
       style={[
         styles.image,
-        { width: size, height: size, backgroundColor: colors.background },
+        { width: size, height: size },
+        // Il logo ha già il suo sfondo arrotondato; le foto no.
+        showPhoto && { backgroundColor: colors.background },
       ]}
     />
   );
