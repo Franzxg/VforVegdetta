@@ -1,0 +1,314 @@
+[
+  {
+    "code": "E100",
+    "vegan": "yes",
+    "name": { "it": "Curcumina", "en": "Curcumin" },
+    "note": {
+      "it": "Colorante giallo estratto dalla radice di curcuma.",
+      "en": "Yellow colouring extracted from turmeric root."
+    }
+  },
+  {
+    "code": "E101",
+    "vegan": "maybe",
+    "name": { "it": "Riboflavina", "en": "Riboflavin" },
+    "note": {
+      "it": "Vitamina B2 usata come colorante. Di solito prodotta per fermentazione, ma può derivare da fonti animali.",
+      "en": "Vitamin B2 used as a colouring. Usually made by fermentation, but it can come from animal sources."
+    }
+  },
+  {
+    "code": "E120",
+    "vegan": "no",
+    "name": { "it": "Carminio (cocciniglia)", "en": "Carmine (cochineal)" },
+    "note": {
+      "it": "Colorante rosso ottenuto dagli insetti della cocciniglia.",
+      "en": "Red colouring obtained from cochineal insects."
+    }
+  },
+  {
+    "code": "E150a",
+    "vegan": "yes",
+    "name": { "it": "Caramello semplice", "en": "Plain caramel" },
+    "note": {
+      "it": "Colorante bruno ottenuto scaldando zuccheri.",
+      "en": "Brown colouring made by heating sugars."
+    }
+  },
+  {
+    "code": "E153",
+    "vegan": "yes",
+    "name": { "it": "Carbone vegetale", "en": "Vegetable carbon" },
+    "note": {
+      "it": "Colorante nero ottenuto dalla carbonizzazione di materiale vegetale.",
+      "en": "Black colouring made by carbonising plant material."
+    }
+  },
+  {
+    "code": "E160a",
+    "vegan": "maybe",
+    "name": { "it": "Beta-carotene", "en": "Beta-carotene" },
+    "note": {
+      "it": "Colorante arancione di origine vegetale o sintetica; a volte viene stabilizzato con gelatina animale.",
+      "en": "Orange colouring of plant or synthetic origin; sometimes stabilised with animal gelatine."
+    }
+  },
+  {
+    "code": "E170",
+    "vegan": "yes",
+    "name": { "it": "Carbonato di calcio", "en": "Calcium carbonate" },
+    "note": {
+      "it": "Sale minerale usato come colorante bianco e correttore di acidità.",
+      "en": "Mineral salt used as a white colouring and acidity regulator."
+    }
+  },
+  {
+    "code": "E252",
+    "vegan": "yes",
+    "name": { "it": "Nitrato di potassio", "en": "Potassium nitrate" },
+    "note": {
+      "it": "Conservante minerale, usato soprattutto nei salumi.",
+      "en": "Mineral preservative, mostly used in cured meats."
+    }
+  },
+  {
+    "code": "E270",
+    "vegan": "yes",
+    "name": { "it": "Acido lattico", "en": "Lactic acid" },
+    "note": {
+      "it": "Nonostante il nome, si ottiene quasi sempre dalla fermentazione di zuccheri vegetali, non dal latte.",
+      "en": "Despite the name, it is almost always made by fermenting plant sugars, not from milk."
+    }
+  },
+  {
+    "code": "E300",
+    "vegan": "yes",
+    "name": { "it": "Acido ascorbico", "en": "Ascorbic acid" },
+    "note": {
+      "it": "Vitamina C, usata come antiossidante.",
+      "en": "Vitamin C, used as an antioxidant."
+    }
+  },
+  {
+    "code": "E306",
+    "vegan": "yes",
+    "name": { "it": "Tocoferoli", "en": "Tocopherols" },
+    "note": {
+      "it": "Vitamina E estratta da oli vegetali, usata come antiossidante.",
+      "en": "Vitamin E extracted from vegetable oils, used as an antioxidant."
+    }
+  },
+  {
+    "code": "E322",
+    "vegan": "maybe",
+    "name": { "it": "Lecitine", "en": "Lecithins" },
+    "note": {
+      "it": "Emulsionante ricavato di solito da soia o girasole, ma può derivare anche dalle uova.",
+      "en": "Emulsifier usually made from soy or sunflower, but it can also come from eggs."
+    }
+  },
+  {
+    "code": "E325",
+    "vegan": "yes",
+    "name": { "it": "Lattato di sodio", "en": "Sodium lactate" },
+    "note": {
+      "it": "Sale dell'acido lattico, ottenuto per fermentazione vegetale.",
+      "en": "Salt of lactic acid, made by plant fermentation."
+    }
+  },
+  {
+    "code": "E330",
+    "vegan": "yes",
+    "name": { "it": "Acido citrico", "en": "Citric acid" },
+    "note": {
+      "it": "Correttore di acidità prodotto per fermentazione.",
+      "en": "Acidity regulator made by fermentation."
+    }
+  },
+  {
+    "code": "E334",
+    "vegan": "yes",
+    "name": { "it": "Acido tartarico", "en": "Tartaric acid" },
+    "note": {
+      "it": "Acido ricavato dall'uva, sottoprodotto della vinificazione.",
+      "en": "Acid obtained from grapes, a by-product of winemaking."
+    }
+  },
+  {
+    "code": "E401",
+    "vegan": "yes",
+    "name": { "it": "Alginato di sodio", "en": "Sodium alginate" },
+    "note": {
+      "it": "Addensante estratto dalle alghe brune.",
+      "en": "Thickener extracted from brown seaweed."
+    }
+  },
+  {
+    "code": "E406",
+    "vegan": "yes",
+    "name": { "it": "Agar-agar", "en": "Agar" },
+    "note": {
+      "it": "Gelificante estratto dalle alghe rosse: l'alternativa vegetale alla gelatina.",
+      "en": "Gelling agent extracted from red seaweed: the plant-based alternative to gelatine."
+    }
+  },
+  {
+    "code": "E407",
+    "vegan": "yes",
+    "name": { "it": "Carragenina", "en": "Carrageenan" },
+    "note": {
+      "it": "Addensante e gelificante estratto dalle alghe rosse.",
+      "en": "Thickener and gelling agent extracted from red seaweed."
+    }
+  },
+  {
+    "code": "E410",
+    "vegan": "yes",
+    "name": { "it": "Farina di semi di carrube", "en": "Locust bean gum" },
+    "note": {
+      "it": "Addensante ricavato dai semi della carruba.",
+      "en": "Thickener made from carob seeds."
+    }
+  },
+  {
+    "code": "E415",
+    "vegan": "yes",
+    "name": { "it": "Gomma di xantano", "en": "Xanthan gum" },
+    "note": {
+      "it": "Addensante prodotto dalla fermentazione batterica di zuccheri.",
+      "en": "Thickener made by bacterial fermentation of sugars."
+    }
+  },
+  {
+    "code": "E422",
+    "vegan": "maybe",
+    "name": { "it": "Glicerolo", "en": "Glycerol" },
+    "note": {
+      "it": "Umidificante che può derivare da grassi vegetali o animali.",
+      "en": "Humectant that can come from vegetable or animal fats."
+    }
+  },
+  {
+    "code": "E440",
+    "vegan": "yes",
+    "name": { "it": "Pectine", "en": "Pectins" },
+    "note": {
+      "it": "Gelificante estratto dalla frutta, tipico delle marmellate.",
+      "en": "Gelling agent extracted from fruit, typical of jams."
+    }
+  },
+  {
+    "code": "E471",
+    "vegan": "maybe",
+    "name": {
+      "it": "Mono- e digliceridi degli acidi grassi",
+      "en": "Mono- and diglycerides of fatty acids"
+    },
+    "note": {
+      "it": "Emulsionanti ottenuti da grassi che possono essere vegetali o animali.",
+      "en": "Emulsifiers made from fats that can be vegetable or animal."
+    }
+  },
+  {
+    "code": "E481",
+    "vegan": "maybe",
+    "name": {
+      "it": "Stearoil-2-lattilato di sodio",
+      "en": "Sodium stearoyl-2-lactylate"
+    },
+    "note": {
+      "it": "Emulsionante per prodotti da forno; l'acido stearico può essere di origine animale.",
+      "en": "Emulsifier for baked goods; the stearic acid can be of animal origin."
+    }
+  },
+  {
+    "code": "E542",
+    "vegan": "no",
+    "name": { "it": "Fosfato d'ossa", "en": "Bone phosphate" },
+    "note": {
+      "it": "Antiagglomerante ricavato dalle ossa di animali.",
+      "en": "Anti-caking agent made from animal bones."
+    }
+  },
+  {
+    "code": "E621",
+    "vegan": "yes",
+    "name": { "it": "Glutammato monosodico", "en": "Monosodium glutamate" },
+    "note": {
+      "it": "Esaltatore di sapidità prodotto per fermentazione.",
+      "en": "Flavour enhancer made by fermentation."
+    }
+  },
+  {
+    "code": "E627",
+    "vegan": "maybe",
+    "name": { "it": "Guanilato disodico", "en": "Disodium guanylate" },
+    "note": {
+      "it": "Esaltatore di sapidità che può essere ricavato da lieviti o da pesce.",
+      "en": "Flavour enhancer that can be made from yeast or from fish."
+    }
+  },
+  {
+    "code": "E631",
+    "vegan": "maybe",
+    "name": { "it": "Inosinato disodico", "en": "Disodium inosinate" },
+    "note": {
+      "it": "Esaltatore di sapidità spesso ricavato da carne o pesce, a volte da fermentazione.",
+      "en": "Flavour enhancer often made from meat or fish, sometimes by fermentation."
+    }
+  },
+  {
+    "code": "E901",
+    "vegan": "no",
+    "name": { "it": "Cera d'api", "en": "Beeswax" },
+    "note": {
+      "it": "Agente di rivestimento prodotto dalle api.",
+      "en": "Glazing agent produced by bees."
+    }
+  },
+  {
+    "code": "E904",
+    "vegan": "no",
+    "name": { "it": "Gommalacca", "en": "Shellac" },
+    "note": {
+      "it": "Agente di rivestimento lucido secreto da un insetto; si trova su confetti e frutta.",
+      "en": "Shiny glazing agent secreted by an insect; found on sweets and fruit."
+    }
+  },
+  {
+    "code": "E913",
+    "vegan": "no",
+    "name": { "it": "Lanolina", "en": "Lanolin" },
+    "note": {
+      "it": "Grasso ricavato dalla lana di pecora, usato come agente di rivestimento.",
+      "en": "Fat obtained from sheep's wool, used as a glazing agent."
+    }
+  },
+  {
+    "code": "E920",
+    "vegan": "maybe",
+    "name": { "it": "L-cisteina", "en": "L-cysteine" },
+    "note": {
+      "it": "Agente per il trattamento delle farine: può essere ricavato da piume o peli, oppure sintetico.",
+      "en": "Flour treatment agent: it can be made from feathers or hair, or be synthetic."
+    }
+  },
+  {
+    "code": "E966",
+    "vegan": "no",
+    "name": { "it": "Lattitolo", "en": "Lactitol" },
+    "note": {
+      "it": "Dolcificante ricavato dal lattosio, lo zucchero del latte.",
+      "en": "Sweetener made from lactose, the sugar in milk."
+    }
+  },
+  {
+    "code": "E1105",
+    "vegan": "no",
+    "name": { "it": "Lisozima", "en": "Lysozyme" },
+    "note": {
+      "it": "Conservante estratto dall'albume d'uovo, usato nei formaggi.",
+      "en": "Preservative extracted from egg white, used in cheese."
+    }
+  }
+]
