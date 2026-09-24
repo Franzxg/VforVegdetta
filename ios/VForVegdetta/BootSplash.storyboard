@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BootSplashLogo-ea50d5" translatesAutoresizingMaskIntoConstraints="NO" id="3lX-Ut-9ad">
-                                <rect key="frame" x="107.5" y="253.5" width="160" height="160"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="BootSplashLogo-15d82a" translatesAutoresizingMaskIntoConstraints="NO" id="3lX-Ut-9ad">
+                                <rect key="frame" x="91.5" y="237.5" width="192" height="192"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" name="BootSplashBackground-ea50d5"/>
+                        <color key="backgroundColor" name="BootSplashBackground-15d82a"/>
                         <constraints>
                             <constraint firstItem="3lX-Ut-9ad" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Fh9-Fy-1nT"/>
                             <constraint firstItem="3lX-Ut-9ad" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="nvB-Ic-PnI"/>
@@ -38,8 +38,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BootSplashLogo-ea50d5" width="160" height="160"/>
-        <namedColor name="BootSplashBackground-ea50d5">
+        <image name="BootSplashLogo-15d82a" width="192" height="192"/>
+        <namedColor name="BootSplashBackground-15d82a">
             <color red="0.698039215686274" green="0.858823529411765" blue="0.749019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
