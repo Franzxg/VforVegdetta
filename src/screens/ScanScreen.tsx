@@ -3,10 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   AppState,
-  KeyboardAvoidingView,
   Linking,
-  Platform,
-  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -46,14 +43,47 @@ function useAppIsActive(): boolean {
   return active;
 }
 
+function ManualEntryButton({ onPress }: { onPress: () => void }) {
+  const { t } = useTranslation();
+  return (
+    <AppButton
+      variant="secondary"
+      title={t('scan.manualLink')}
+      onPress={onPress}
+      style={styles.manualButton}
+    />
+  );
+}
+
+/** Messaggio al posto della fotocamera, con l'alternativa manuale. */
+function CameraFallback({
+  message,
+  onManualEntry,
+}: {
+  message: string;
+  onManualEntry: () => void;
+}) {
+  const { colors } = useTheme();
+  return (
+    <View style={[styles.cameraFallback, { backgroundColor: colors.surface }]}>
+      <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>
+        {message}
+      </Text>
+      <ManualEntryButton onPress={onManualEntry} />
+    </View>
+  );
+}
+
 function BarcodeCamera({
   isActive,
   onScanned,
   onError,
+  onManualEntry,
 }: {
   isActive: boolean;
   onScanned: (code: string) => void;
   onError: () => void;
+  onManualEntry: () => void;
 }) {
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -73,13 +103,10 @@ function BarcodeCamera({
 
   if (device == null) {
     return (
-      <View
-        style={[styles.cameraFallback, { backgroundColor: colors.surface }]}
-      >
-        <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>
-          {t('scan.noDevice')}
-        </Text>
-      </View>
+      <CameraFallback
+        message={t('scan.noDevice')}
+        onManualEntry={onManualEntry}
+      />
     );
   }
 
@@ -93,17 +120,26 @@ function BarcodeCamera({
         onError={onError}
       />
       {/* Mirino: velo scuro con una finestra al centro */}
-      <View style={StyleSheet.absoluteFill} pointerEvents="none">
-        <View style={[styles.mask, { backgroundColor: colors.overlay }]} />
-        <View style={styles.frameRow}>
+      <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+        <View
+          style={[styles.mask, { backgroundColor: colors.overlay }]}
+          pointerEvents="none"
+        />
+        <View style={styles.frameRow} pointerEvents="none">
           <View style={[styles.mask, { backgroundColor: colors.overlay }]} />
           <View style={[styles.frame, { borderColor: colors.highlight }]} />
           <View style={[styles.mask, { backgroundColor: colors.overlay }]} />
         </View>
-        <View style={[styles.mask, { backgroundColor: colors.overlay }]}>
+        {/* Il bottone sta subito sotto il mirino: lontano dalla barra di
+            navigazione di sistema, che con l'edge-to-edge copre il fondo. */}
+        <View
+          style={[styles.mask, { backgroundColor: colors.overlay }]}
+          pointerEvents="box-none"
+        >
           <Text style={[styles.hint, { color: colors.highlight }]}>
             {t('scan.hint')}
           </Text>
+          <ManualEntryButton onPress={onManualEntry} />
         </View>
       </View>
     </View>
@@ -141,6 +177,8 @@ export function ScanScreen({ navigation }: RootScreenProps<'Scan'>) {
     [navigation],
   );
 
+  const openManual = useCallback(() => setManualOpen(true), []);
+
   const submitManual = () => {
     const code = normalizeBarcode(manualCode);
     if (!isValidBarcode(code)) {
@@ -174,17 +212,19 @@ export function ScanScreen({ navigation }: RootScreenProps<'Scan'>) {
             onPress={() => Linking.openSettings()}
           />
         )}
+        <AppButton
+          variant="ghost"
+          title={t('scan.manualLink')}
+          onPress={openManual}
+        />
       </StateView>
     );
   } else if (cameraFailed) {
     cameraArea = (
-      <View
-        style={[styles.cameraFallback, { backgroundColor: colors.surface }]}
-      >
-        <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>
-          {t('scan.cameraError')}
-        </Text>
-      </View>
+      <CameraFallback
+        message={t('scan.cameraError')}
+        onManualEntry={openManual}
+      />
     );
   } else {
     cameraArea = (
@@ -192,85 +232,72 @@ export function ScanScreen({ navigation }: RootScreenProps<'Scan'>) {
         isActive={cameraActive}
         onScanned={openProduct}
         onError={() => setCameraFailed(true)}
+        onManualEntry={openManual}
       />
     );
   }
 
   return (
-    <KeyboardAvoidingView
-      style={[styles.container, { backgroundColor: colors.surface }]}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    >
-      <View style={styles.cameraArea}>{cameraArea}</View>
-
-      <View
-        style={[
-          styles.bottomPanel,
-          { backgroundColor: colors.background, borderColor: colors.border },
-        ]}
-      >
-        {manualOpen ? (
-          <>
-            <Text style={[styles.manualTitle, { color: colors.textPrimary }]}>
-              {t('scan.manualTitle')}
+    <View style={[styles.container, { backgroundColor: colors.surface }]}>
+      {/* In alto, così né la tastiera né la barra di sistema lo coprono */}
+      {manualOpen && (
+        <View
+          style={[
+            styles.manualPanel,
+            { backgroundColor: colors.background, borderColor: colors.border },
+          ]}
+        >
+          <Text style={[styles.manualTitle, { color: colors.textPrimary }]}>
+            {t('scan.manualTitle')}
+          </Text>
+          <TextInput
+            autoFocus
+            value={manualCode}
+            onChangeText={text => {
+              setManualCode(text);
+              setManualError(null);
+            }}
+            onSubmitEditing={submitManual}
+            keyboardType="number-pad"
+            returnKeyType="search"
+            maxLength={18}
+            placeholder={t('scan.manualPlaceholder')}
+            placeholderTextColor={colors.textSecondary}
+            style={[
+              styles.input,
+              {
+                color: colors.textPrimary,
+                backgroundColor: colors.surface,
+                borderColor: manualError ? colors.accent : colors.border,
+              },
+            ]}
+          />
+          {manualError && (
+            <Text style={[styles.error, { color: colors.accent }]}>
+              {manualError}
             </Text>
-            <TextInput
-              autoFocus
-              value={manualCode}
-              onChangeText={text => {
-                setManualCode(text);
+          )}
+          <View style={styles.manualActions}>
+            <AppButton
+              variant="ghost"
+              title={t('scan.manualCancel')}
+              onPress={() => {
+                setManualOpen(false);
                 setManualError(null);
               }}
-              onSubmitEditing={submitManual}
-              keyboardType="number-pad"
-              returnKeyType="search"
-              maxLength={18}
-              placeholder={t('scan.manualPlaceholder')}
-              placeholderTextColor={colors.textSecondary}
-              style={[
-                styles.input,
-                {
-                  color: colors.textPrimary,
-                  backgroundColor: colors.surface,
-                  borderColor: manualError ? colors.accent : colors.border,
-                },
-              ]}
+              style={styles.flex}
             />
-            {manualError && (
-              <Text style={[styles.error, { color: colors.accent }]}>
-                {manualError}
-              </Text>
-            )}
-            <View style={styles.manualActions}>
-              <AppButton
-                variant="ghost"
-                title={t('scan.manualCancel')}
-                onPress={() => {
-                  setManualOpen(false);
-                  setManualError(null);
-                }}
-                style={styles.flex}
-              />
-              <AppButton
-                title={t('scan.manualSubmit')}
-                onPress={submitManual}
-                style={styles.flex}
-              />
-            </View>
-          </>
-        ) : (
-          <Pressable
-            accessibilityRole="link"
-            onPress={() => setManualOpen(true)}
-            hitSlop={8}
-          >
-            <Text style={[styles.manualLink, { color: colors.primary }]}>
-              {t('scan.manualLink')}
-            </Text>
-          </Pressable>
-        )}
-      </View>
-    </KeyboardAvoidingView>
+            <AppButton
+              title={t('scan.manualSubmit')}
+              onPress={submitManual}
+              style={styles.flex}
+            />
+          </View>
+        </View>
+      )}
+
+      <View style={styles.cameraArea}>{cameraArea}</View>
+    </View>
   );
 }
 
@@ -289,6 +316,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
+    gap: 16,
   },
   fallbackText: {
     fontSize: 16,
@@ -312,16 +340,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
-  bottomPanel: {
-    padding: 20,
-    borderTopWidth: 1,
-    gap: 10,
+  manualButton: {
+    marginTop: 16,
   },
-  manualLink: {
-    fontSize: 16,
-    fontWeight: '600',
-    textAlign: 'center',
-    textDecorationLine: 'underline',
+  manualPanel: {
+    padding: 20,
+    borderBottomWidth: 1,
+    gap: 10,
   },
   manualTitle: {
     fontSize: 17,
