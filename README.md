@@ -441,6 +441,14 @@ Nel dettaglio prodotto il verdetto comparirebbe come "verificato con il
 produttore", insieme alla data della verifica. Lo stesso lavoro potrebbe
 aggiornare anche gli additivi segnati come "Forse".
 
+**Prodotti non alimentari**
+
+L'app potrebbe controllare anche prodotti non alimentari come cosmetici,
+prodotti per l'igiene personale e detersivi, che spesso contengono sostanze
+di origine animale (per esempio lanolina, cera d'api, carminio).
+Oltre agli ingredienti, andrebbe indicato se il prodotto è testato su
+animali, un aspetto che conta per chi sceglie prodotti vegani.
+
 ## Crediti
 
 - Dati dei prodotti: [Open Food Facts](https://world.openfoodfacts.org),
