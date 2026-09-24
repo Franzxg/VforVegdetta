@@ -89,7 +89,7 @@ export function HeaderMenu() {
         accessibilityLabel={session ? t('auth.account') : t('auth.login')}
         hitSlop={8}
         onPress={() => navigation.navigate('Login')}
-        style={[styles.account, { borderColor: colors.textPrimary }]}
+        style={styles.account}
       >
         <Text
           numberOfLines={1}
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   account: {
-    borderWidth: 1,
     borderRadius: 999,
     paddingVertical: 4,
     paddingHorizontal: 12,

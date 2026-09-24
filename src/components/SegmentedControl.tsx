@@ -12,22 +12,14 @@ export function SegmentedControl<T extends string>({
   options,
   selected,
   onChange,
-  error = false,
 }: {
   options: SegmentOption<T>[];
   selected: T | null;
   onChange: (value: T) => void;
-  error?: boolean;
 }) {
   const { colors } = useTheme();
   return (
-    <View
-      accessibilityRole="radiogroup"
-      style={[
-        styles.segmented,
-        { borderColor: error ? colors.accent : colors.border },
-      ]}
-    >
+    <View accessibilityRole="radiogroup" style={styles.segmented}>
       {options.map(option => {
         const active = option.value === selected;
         return (
@@ -59,7 +51,6 @@ export function SegmentedControl<T extends string>({
 const styles = StyleSheet.create({
   segmented: {
     flexDirection: 'row',
-    borderWidth: 1,
     borderRadius: 12,
     overflow: 'hidden',
   },

@@ -43,7 +43,7 @@ export function VerdictBadge({
       style={[
         styles.badge,
         compact && styles.compact,
-        { backgroundColor: palette.background, borderColor: colors.border },
+        { backgroundColor: palette.background },
       ]}
     >
       <Text
@@ -67,7 +67,6 @@ export function VerdictBadge({
 const styles = StyleSheet.create({
   badge: {
     borderRadius: 14,
-    borderWidth: 1,
     paddingVertical: 12,
     paddingHorizontal: 16,
     alignItems: 'center',

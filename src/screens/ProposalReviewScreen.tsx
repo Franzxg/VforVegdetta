@@ -212,7 +212,6 @@ function ProposalReview({
             options={verdictOptions}
             selected={verdict}
             onChange={setVerdict}
-            error={verdictError}
           />
           {verdictError && (
             <Text style={[styles.error, { color: colors.accent }]}>

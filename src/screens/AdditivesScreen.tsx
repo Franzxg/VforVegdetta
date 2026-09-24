@@ -135,17 +135,7 @@ function AdditiveRow({ additive }: { additive: Additive }) {
         >
           {localized(additive.name, i18n.language)}
         </Text>
-        <View
-          style={[
-            styles.pill,
-            { backgroundColor: palette.bg },
-            // Il giallo chiaro si distingue poco dallo sfondo della card.
-            additive.vegan === 'maybe' && [
-              styles.outlined,
-              { borderColor: colors.border },
-            ],
-          ]}
-        >
+        <View style={[styles.pill, { backgroundColor: palette.bg }]}>
           <Text style={[styles.pillText, { color: palette.fg }]}>
             {t(`additives.status.${additive.vegan}`)}
           </Text>
@@ -209,9 +199,6 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     paddingVertical: 4,
     paddingHorizontal: 10,
-  },
-  outlined: {
-    borderWidth: 1,
   },
   pillText: {
     fontSize: 13,

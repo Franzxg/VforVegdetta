@@ -49,7 +49,6 @@ export function AppButton({
           backgroundColor: background,
           opacity: disabled ? 0.5 : pressed ? 0.8 : 1,
         },
-        variant === 'ghost' && { borderColor: colors.primary, borderWidth: 1 },
         style,
       ]}
     >

@@ -240,10 +240,7 @@ function FlaggedRow({ ingredient }: { ingredient: ProductIngredient }) {
       <View
         style={[
           styles.dot,
-          {
-            backgroundColor: isNonVegan ? colors.accent : colors.highlight,
-            borderColor: colors.border,
-          },
+          { backgroundColor: isNonVegan ? colors.accent : colors.highlight },
         ]}
       />
       <Text style={[styles.flaggedText, { color: colors.textPrimary }]}>
@@ -264,16 +261,7 @@ function IngredientChip({ ingredient }: { ingredient: ProductIngredient }) {
     none: { bg: colors.surface, fg: colors.textPrimary },
   }[ingredient.flag];
   return (
-    <View
-      style={[
-        styles.chip,
-        { backgroundColor: palette.bg },
-        ingredient.flag === 'maybe' && [
-          styles.outlined,
-          { borderColor: colors.border },
-        ],
-      ]}
-    >
+    <View style={[styles.chip, { backgroundColor: palette.bg }]}>
       <Text
         style={[
           styles.chipText,
@@ -345,7 +333,6 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    borderWidth: 1,
   },
   flaggedText: {
     flex: 1,
@@ -362,9 +349,6 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     paddingVertical: 4,
     paddingHorizontal: 10,
-  },
-  outlined: {
-    borderWidth: 1,
   },
   chipText: {
     fontSize: 14,
