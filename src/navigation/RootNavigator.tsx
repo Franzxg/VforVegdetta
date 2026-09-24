@@ -9,6 +9,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HeaderMenu } from '../components/HeaderMenu';
 import { AboutScreen } from '../screens/AboutScreen';
+import { AdditivesScreen } from '../screens/AdditivesScreen';
 import { BecomeVolunteerScreen } from '../screens/BecomeVolunteerScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { LoginScreen } from '../screens/LoginScreen';
@@ -105,6 +106,11 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
           name="About"
           component={AboutScreen}
           options={{ title: t('nav.about') }}
+        />
+        <Stack.Screen
+          name="Additives"
+          component={AdditivesScreen}
+          options={{ title: t('nav.additives') }}
         />
         <Stack.Screen
           name="Settings"

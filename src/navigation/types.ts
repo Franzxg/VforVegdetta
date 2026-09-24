@@ -3,6 +3,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   Home: undefined;
   About: undefined;
+  Additives: undefined;
   Scan: undefined;
   Product: { barcode: string };
   ProposeProduct: { barcode?: string } | undefined;

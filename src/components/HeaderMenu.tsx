@@ -40,6 +40,11 @@ export function HeaderMenu() {
     { key: 'home', label: t('nav.home'), onPress: go('Home') },
     { key: 'about', label: t('nav.about'), onPress: go('About') },
     {
+      key: 'additives',
+      label: t('nav.additives'),
+      onPress: go('Additives'),
+    },
+    {
       key: 'propose',
       label: t('nav.proposeProduct'),
       onPress: go('ProposeProduct'),

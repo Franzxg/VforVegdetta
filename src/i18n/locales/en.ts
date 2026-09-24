@@ -21,6 +21,7 @@ const en: TranslationShape = {
     proposalReview: 'Review proposal',
     superAdminPanel: 'Super Admin Panel',
     about: 'About the app',
+    additives: 'Food additives',
   },
   home: {
     title: 'Is this product vegan?',
@@ -250,6 +251,25 @@ const en: TranslationShape = {
       'The app remembers the last 100 scanned products: when you are offline it shows the last saved data, flagging that it may be out of date.',
     disclaimer:
       'Data may contain errors or be incomplete: when in doubt, always check the product label.',
+  },
+  additives: {
+    searchPlaceholder: 'Search by code (e.g. E120) or name',
+    filter: {
+      all: 'All',
+      yes: 'Vegan',
+      no: 'Not vegan',
+      maybe: 'Maybe',
+    },
+    status: {
+      yes: 'Vegan',
+      no: 'Not vegan',
+      maybe: 'Maybe',
+    },
+    count: 'Additives found: {{count}}',
+    emptyTitle: 'No additives found',
+    emptyText: 'Try another code or name, or change the filter.',
+    footer:
+      '“Maybe” means the additive can be of plant, synthetic or animal origin: only the manufacturer can tell for sure.',
   },
   settings: {
     theme: 'Theme',

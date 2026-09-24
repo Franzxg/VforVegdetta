@@ -19,6 +19,7 @@ const it = {
     proposalReview: 'Revisione proposta',
     superAdminPanel: 'Pannello Super Admin',
     about: 'Descrizione app',
+    additives: 'Additivi alimentari',
   },
   home: {
     title: 'Questo prodotto è vegano?',
@@ -252,6 +253,25 @@ const it = {
       "L'app ricorda gli ultimi 100 prodotti scansionati: se sei offline ti mostra l'ultimo dato salvato, segnalando che potrebbe non essere aggiornato.",
     disclaimer:
       "I dati possono contenere errori o essere incompleti: in caso di dubbio controlla sempre l'etichetta del prodotto.",
+  },
+  additives: {
+    searchPlaceholder: 'Cerca per codice (es. E120) o nome',
+    filter: {
+      all: 'Tutti',
+      yes: 'Vegani',
+      no: 'Non vegani',
+      maybe: 'Forse',
+    },
+    status: {
+      yes: 'Vegano',
+      no: 'Non vegano',
+      maybe: 'Forse',
+    },
+    count: 'Additivi trovati: {{count}}',
+    emptyTitle: 'Nessun additivo trovato',
+    emptyText: 'Prova con un altro codice o nome, oppure cambia filtro.',
+    footer:
+      "«Forse» significa che l'additivo può avere origine vegetale, sintetica o animale: per saperlo con certezza bisogna chiedere al produttore.",
   },
   settings: {
     theme: 'Tema',
