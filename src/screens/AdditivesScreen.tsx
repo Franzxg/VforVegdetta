@@ -20,11 +20,11 @@ type StatusFilter = AdditiveVeganStatus | 'all';
 function statusColors(status: AdditiveVeganStatus, colors: ThemeColors) {
   switch (status) {
     case 'yes':
-      return { bg: colors.highlight, fg: colors.textPrimary };
+      return { bg: colors.secondary, fg: colors.onSecondary };
     case 'no':
       return { bg: colors.accent, fg: colors.onPrimary };
     default:
-      return { bg: colors.secondary, fg: colors.onPrimary };
+      return { bg: colors.highlight, fg: colors.textPrimary };
   }
 }
 
@@ -135,7 +135,17 @@ function AdditiveRow({ additive }: { additive: Additive }) {
         >
           {localized(additive.name, i18n.language)}
         </Text>
-        <View style={[styles.pill, { backgroundColor: palette.bg }]}>
+        <View
+          style={[
+            styles.pill,
+            { backgroundColor: palette.bg },
+            // Il giallo chiaro si distingue poco dallo sfondo della card.
+            additive.vegan === 'maybe' && [
+              styles.outlined,
+              { borderColor: colors.border },
+            ],
+          ]}
+        >
           <Text style={[styles.pillText, { color: palette.fg }]}>
             {t(`additives.status.${additive.vegan}`)}
           </Text>
@@ -199,6 +209,9 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     paddingVertical: 4,
     paddingHorizontal: 10,
+  },
+  outlined: {
+    borderWidth: 1,
   },
   pillText: {
     fontSize: 13,

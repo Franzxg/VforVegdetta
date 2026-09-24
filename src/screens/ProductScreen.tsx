@@ -240,7 +240,10 @@ function FlaggedRow({ ingredient }: { ingredient: ProductIngredient }) {
       <View
         style={[
           styles.dot,
-          { backgroundColor: isNonVegan ? colors.accent : colors.secondary },
+          {
+            backgroundColor: isNonVegan ? colors.accent : colors.highlight,
+            borderColor: colors.border,
+          },
         ]}
       />
       <Text style={[styles.flaggedText, { color: colors.textPrimary }]}>
@@ -257,11 +260,20 @@ function IngredientChip({ ingredient }: { ingredient: ProductIngredient }) {
   const { colors } = useTheme();
   const palette = {
     non_vegan: { bg: colors.accent, fg: colors.onPrimary },
-    maybe: { bg: colors.secondary, fg: colors.onPrimary },
+    maybe: { bg: colors.highlight, fg: colors.textPrimary },
     none: { bg: colors.surface, fg: colors.textPrimary },
   }[ingredient.flag];
   return (
-    <View style={[styles.chip, { backgroundColor: palette.bg }]}>
+    <View
+      style={[
+        styles.chip,
+        { backgroundColor: palette.bg },
+        ingredient.flag === 'maybe' && [
+          styles.outlined,
+          { borderColor: colors.border },
+        ],
+      ]}
+    >
       <Text
         style={[
           styles.chipText,
@@ -333,6 +345,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
+    borderWidth: 1,
   },
   flaggedText: {
     flex: 1,
@@ -349,6 +362,9 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     paddingVertical: 4,
     paddingHorizontal: 10,
+  },
+  outlined: {
+    borderWidth: 1,
   },
   chipText: {
     fontSize: 14,

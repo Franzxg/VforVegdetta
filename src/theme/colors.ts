@@ -14,6 +14,8 @@ export interface ThemeColors {
   textSecondary: string;
   /** Testo/icone sopra `primary` o `accent`. */
   onPrimary: string;
+  /** Testo sopra `secondary` (es. badge "Vegano"). */
+  onSecondary: string;
   /** Bordi e divisori sottili. */
   border: string;
   /** Velo semitrasparente sopra la vista fotocamera. */
@@ -30,6 +32,7 @@ export const lightColors: ThemeColors = {
   textPrimary: '#16261F',
   textSecondary: '#4A5C52',
   onPrimary: '#FFFFFF',
+  onSecondary: '#16261F',
   border: '#8FC3A0',
   overlay: 'rgba(16, 32, 26, 0.55)',
 };
@@ -44,6 +47,7 @@ export const darkColors: ThemeColors = {
   textPrimary: '#EAF3EC',
   textSecondary: '#A9BDB2',
   onPrimary: '#10201A',
+  onSecondary: '#10201A',
   border: '#2E4A3E',
   overlay: 'rgba(16, 32, 26, 0.65)',
 };

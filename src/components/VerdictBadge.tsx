@@ -11,11 +11,11 @@ export function verdictColors(
 ): { background: string; text: string } {
   switch (status) {
     case 'vegan':
-      return { background: colors.highlight, text: colors.textPrimary };
+      return { background: colors.secondary, text: colors.onSecondary };
     case 'non_vegan':
       return { background: colors.accent, text: colors.onPrimary };
     case 'maybe':
-      return { background: colors.secondary, text: colors.onPrimary };
+      return { background: colors.highlight, text: colors.textPrimary };
     default:
       return { background: colors.background, text: colors.textSecondary };
   }
