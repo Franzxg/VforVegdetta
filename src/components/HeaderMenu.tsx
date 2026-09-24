@@ -38,6 +38,7 @@ export function HeaderMenu() {
 
   const items: MenuItem[] = [
     { key: 'home', label: t('nav.home'), onPress: go('Home') },
+    { key: 'about', label: t('nav.about'), onPress: go('About') },
     {
       key: 'propose',
       label: t('nav.proposeProduct'),

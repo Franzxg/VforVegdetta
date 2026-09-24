@@ -20,6 +20,7 @@ const en: TranslationShape = {
     volunteerPanel: 'Volunteer Panel',
     proposalReview: 'Review proposal',
     superAdminPanel: 'Super Admin Panel',
+    about: 'About the app',
   },
   home: {
     title: 'Is this product vegan?',
@@ -224,6 +225,31 @@ const en: TranslationShape = {
     approve: 'Approve',
     reject: 'Reject',
     confirmReject: "Reject {{name}}'s application?",
+  },
+  about: {
+    lead: 'Scan a food product and find out in a moment whether it is vegan.',
+    howTitle: 'How it works',
+    steps: {
+      scan: 'Frame the barcode with the camera, or type it by hand.',
+      verdict:
+        'The app reads the ingredients and shows the verdict: vegan, not vegan or uncertain, highlighting the ingredients responsible.',
+      propose:
+        'Product not found? Suggest it with three photos: no account needed.',
+      review:
+        'Volunteers check the photos and publish the product, which from then on is recognized for everyone.',
+    },
+    sourceTitle: 'Where the data comes from',
+    sourceText:
+      'Product information comes from Open Food Facts, the free and collaborative database of food products from around the world. The verdict is based on the ingredient analysis made by Open Food Facts.',
+    openOff: 'Visit openfoodfacts.org',
+    communityTitle: 'The community',
+    communityText:
+      'When a product is missing, anyone can suggest it. Volunteers check each proposal by hand before publishing it: approved products take precedence over Open Food Facts data.',
+    offlineTitle: 'Even without a connection',
+    offlineText:
+      'The app remembers the last 100 scanned products: when you are offline it shows the last saved data, flagging that it may be out of date.',
+    disclaimer:
+      'Data may contain errors or be incomplete: when in doubt, always check the product label.',
   },
   settings: {
     theme: 'Theme',

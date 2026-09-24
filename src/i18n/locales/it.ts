@@ -18,6 +18,7 @@ const it = {
     volunteerPanel: 'Pannello Volontario',
     proposalReview: 'Revisione proposta',
     superAdminPanel: 'Pannello Super Admin',
+    about: 'Descrizione app',
   },
   home: {
     title: 'Questo prodotto è vegano?',
@@ -226,6 +227,31 @@ const it = {
     approve: 'Approva',
     reject: 'Rifiuta',
     confirmReject: 'Rifiutare la candidatura di {{name}}?',
+  },
+  about: {
+    lead: 'Scansiona un prodotto alimentare e scopri in un attimo se è vegano.',
+    howTitle: 'Come funziona',
+    steps: {
+      scan: 'Inquadra il codice a barre con la fotocamera, oppure inseriscilo a mano.',
+      verdict:
+        "L'app legge gli ingredienti e ti mostra il verdetto: vegano, non vegano o incerto, evidenziando gli ingredienti responsabili.",
+      propose:
+        'Prodotto non trovato? Proponilo con tre foto: non serve alcun account.',
+      review:
+        'I volontari controllano le foto e pubblicano il prodotto, che da quel momento viene riconosciuto da tutti.',
+    },
+    sourceTitle: 'Da dove arrivano i dati',
+    sourceText:
+      "Le informazioni sui prodotti arrivano da Open Food Facts, il database libero e collaborativo dei prodotti alimentari di tutto il mondo. Il verdetto si basa sull'analisi degli ingredienti fatta da Open Food Facts.",
+    openOff: 'Visita openfoodfacts.org',
+    communityTitle: 'La community',
+    communityText:
+      'Quando un prodotto manca, chiunque può proporlo. I volontari verificano ogni proposta a mano prima di pubblicarla: i prodotti approvati hanno la precedenza sui dati di Open Food Facts.',
+    offlineTitle: 'Anche senza connessione',
+    offlineText:
+      "L'app ricorda gli ultimi 100 prodotti scansionati: se sei offline ti mostra l'ultimo dato salvato, segnalando che potrebbe non essere aggiornato.",
+    disclaimer:
+      "I dati possono contenere errori o essere incompleti: in caso di dubbio controlla sempre l'etichetta del prodotto.",
   },
   settings: {
     theme: 'Tema',
