@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TextInputProps,
-  View,
-} from 'react-native';
+import { StyleSheet, TextInputProps, View } from 'react-native';
+import { Text, TextInput } from './Text';
 import { useTheme } from '../theme/ThemeContext';
 
 interface Props extends Omit<TextInputProps, 'style'> {

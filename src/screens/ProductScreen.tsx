@@ -1,12 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
+import { Text } from '../components/Text';
 import { AppButton } from '../components/AppButton';
 import { ProductImage } from '../components/ProductImage';
 import { StateView } from '../components/StateView';

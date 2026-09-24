@@ -5,9 +5,9 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
+import { Text } from '../components/Text';
 import { AppButton } from '../components/AppButton';
 import { PhotoViewer } from '../components/PhotoViewer';
 import { ProposalPhoto } from '../components/ProposalPhoto';

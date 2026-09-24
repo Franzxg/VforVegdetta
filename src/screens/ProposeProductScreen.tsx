@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, ScrollView, StyleSheet, View } from 'react-native';
+import { Text } from '../components/Text';
 import { useCameraPermission } from 'react-native-vision-camera';
 import { AppButton } from '../components/AppButton';
 import { PhotoField } from '../components/PhotoField';

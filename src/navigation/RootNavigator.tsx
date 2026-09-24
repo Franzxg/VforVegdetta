@@ -21,6 +21,7 @@ import { SettingsScreen } from '../screens/SettingsScreen';
 import { SuperAdminPanelScreen } from '../screens/SuperAdminPanelScreen';
 import { VolunteerPanelScreen } from '../screens/VolunteerPanelScreen';
 import { useTheme } from '../theme/ThemeContext';
+import { FONT_FAMILY } from '../theme/typography';
 import type { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -35,6 +36,13 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
     const base = isDark ? DarkTheme : DefaultTheme;
     return {
       ...base,
+      // Font dell'app anche per i testi disegnati da React Navigation
+      fonts: {
+        regular: { ...base.fonts.regular, fontFamily: FONT_FAMILY },
+        medium: { ...base.fonts.medium, fontFamily: FONT_FAMILY },
+        bold: { ...base.fonts.bold, fontFamily: FONT_FAMILY },
+        heavy: { ...base.fonts.heavy, fontFamily: FONT_FAMILY },
+      },
       colors: {
         ...base.colors,
         primary: colors.primary,
@@ -53,7 +61,7 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
         screenOptions={{
           headerStyle: { backgroundColor: colors.secondary },
           headerTintColor: colors.textPrimary,
-          headerTitleStyle: { fontWeight: '700' },
+          headerTitleStyle: { fontFamily: FONT_FAMILY, fontWeight: '700' },
           headerRight: renderHeaderMenu,
         }}
       >

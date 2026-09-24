@@ -1,14 +1,8 @@
 import { useIsFocused } from '@react-navigation/native';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  AppState,
-  Linking,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { AppState, Linking, StyleSheet, View } from 'react-native';
+import { Text, TextInput } from '../components/Text';
 import {
   Camera,
   useCameraDevice,

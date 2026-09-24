@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  Pressable,
-  StyleProp,
-  StyleSheet,
-  Text,
-  ViewStyle,
-} from 'react-native';
+import { Pressable, StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { Text } from './Text';
 import { useTheme } from '../theme/ThemeContext';
 
 type Variant = 'primary' | 'secondary' | 'ghost';

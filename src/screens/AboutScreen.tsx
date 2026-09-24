@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, ScrollView, StyleSheet, View } from 'react-native';
+import { Text } from '../components/Text';
 import { AppButton } from '../components/AppButton';
 import { ProductImage } from '../components/ProductImage';
 import { SCAN_CACHE_LIMIT } from '../services/scanCache';
