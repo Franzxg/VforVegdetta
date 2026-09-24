@@ -47,7 +47,7 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
         ...base.colors,
         primary: colors.primary,
         background: colors.surface,
-        card: colors.secondary,
+        card: colors.header,
         text: colors.textPrimary,
         border: colors.border,
         notification: colors.accent,
@@ -59,7 +59,7 @@ export function RootNavigator({ onReady }: { onReady: () => void }) {
     <NavigationContainer theme={navigationTheme} onReady={onReady}>
       <Stack.Navigator
         screenOptions={{
-          headerStyle: { backgroundColor: colors.secondary },
+          headerStyle: { backgroundColor: colors.header },
           headerTintColor: colors.textPrimary,
           headerTitleStyle: { fontFamily: FONT_FAMILY, fontWeight: '700' },
           headerRight: renderHeaderMenu,

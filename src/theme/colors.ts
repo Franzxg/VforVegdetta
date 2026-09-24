@@ -20,6 +20,8 @@ export interface ThemeColors {
   border: string;
   /** Velo semitrasparente sopra la vista fotocamera. */
   overlay: string;
+  /** Barra in alto con titolo, accesso e menu. */
+  header: string;
 }
 
 export const lightColors: ThemeColors = {
@@ -35,6 +37,7 @@ export const lightColors: ThemeColors = {
   onSecondary: '#16261F',
   border: '#8FC3A0',
   overlay: 'rgba(16, 32, 26, 0.55)',
+  header: '#70C1B3',
 };
 
 export const darkColors: ThemeColors = {
@@ -50,4 +53,6 @@ export const darkColors: ThemeColors = {
   onSecondary: '#10201A',
   border: '#2E4A3E',
   overlay: 'rgba(16, 32, 26, 0.65)',
+  // Come il giallo scuro dei «forse»: il verde acqua chiaro abbagliava.
+  header: '#3A4A2E',
 };
