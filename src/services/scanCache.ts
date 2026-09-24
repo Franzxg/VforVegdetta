@@ -2,7 +2,10 @@ import type { Product } from '../types/product';
 import { StorageKeys, readJson, writeJson } from './storage';
 
 /** Numero massimo di prodotti conservati; oltre, si elimina il meno recente. */
-export const SCAN_CACHE_LIMIT = 50;
+export const SCAN_CACHE_LIMIT = 100;
+
+/** Quante scansioni recenti mostrare nella home. */
+export const HOME_RECENT_SCANS = 10;
 
 export interface CacheEntry {
   data: Product;
@@ -59,7 +62,7 @@ export function recentEntries(
     .slice(0, limit);
 }
 
-/** Prodotti scansionati di recente: gli stessi consultabili offline. */
-export async function getRecentScans(): Promise<CacheEntry[]> {
-  return recentEntries(await loadCache());
+/** Prodotti scansionati di recente, dal più recente. */
+export async function getRecentScans(limit: number): Promise<CacheEntry[]> {
+  return recentEntries(await loadCache(), limit);
 }

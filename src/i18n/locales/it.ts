@@ -27,9 +27,8 @@ const it = {
       'Scansiona il codice a barre e scoprilo subito grazie ai dati di Open Food Facts.',
     scanButton: 'Scansiona',
     recentScans: 'Ultime scansioni',
-    recentScansCount: 'Ultime scansioni ({{count}})',
     recentScansHint:
-      'Consultabili anche senza connessione. Vengono conservati gli ultimi {{limit}} prodotti.',
+      'Qui vedi le ultime {{shown}}. Senza connessione puoi consultare fino agli ultimi {{limit}} prodotti scansionati.',
     noRecentScans:
       'Nessuna scansione recente: i prodotti che scansioni compariranno qui.',
   },

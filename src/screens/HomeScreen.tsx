@@ -8,6 +8,7 @@ import { VerdictBadge } from '../components/VerdictBadge';
 import type { RootScreenProps } from '../navigation/types';
 import {
   CacheEntry,
+  HOME_RECENT_SCANS,
   SCAN_CACHE_LIMIT,
   getRecentScans,
 } from '../services/scanCache';
@@ -20,7 +21,7 @@ export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
 
   useFocusEffect(
     useCallback(() => {
-      getRecentScans().then(setRecentScans);
+      getRecentScans(HOME_RECENT_SCANS).then(setRecentScans);
     }, []),
   );
 
@@ -45,13 +46,14 @@ export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
       />
 
       <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>
-        {recentScans.length > 0
-          ? t('home.recentScansCount', { count: recentScans.length })
-          : t('home.recentScans')}
+        {t('home.recentScans')}
       </Text>
       {recentScans.length > 0 && (
         <Text style={[styles.sectionHint, { color: colors.textSecondary }]}>
-          {t('home.recentScansHint', { limit: SCAN_CACHE_LIMIT })}
+          {t('home.recentScansHint', {
+            shown: HOME_RECENT_SCANS,
+            limit: SCAN_CACHE_LIMIT,
+          })}
         </Text>
       )}
 

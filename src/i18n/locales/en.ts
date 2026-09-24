@@ -29,9 +29,8 @@ const en: TranslationShape = {
       'Scan the barcode and find out instantly with data from Open Food Facts.',
     scanButton: 'Scan',
     recentScans: 'Recent scans',
-    recentScansCount: 'Recent scans ({{count}})',
     recentScansHint:
-      'Available even without a connection. The last {{limit}} products are kept.',
+      'Here you see the last {{shown}}. Without a connection you can open up to the last {{limit}} scanned products.',
     noRecentScans: 'No recent scans: the products you scan will show up here.',
   },
   scan: {
