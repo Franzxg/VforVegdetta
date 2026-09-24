@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { AppButton } from '../components/AppButton';
 import { ProductImage } from '../components/ProductImage';
+import { SCAN_CACHE_LIMIT } from '../services/scanCache';
 import { useTheme } from '../theme/ThemeContext';
 
 const OFF_URL = 'https://world.openfoodfacts.org';
@@ -65,7 +66,7 @@ export function AboutScreen() {
 
       <Section title={t('about.offlineTitle')}>
         <Text style={[styles.body, { color: colors.textPrimary }]}>
-          {t('about.offlineText')}
+          {t('about.offlineText', { limit: SCAN_CACHE_LIMIT })}
         </Text>
       </Section>
 

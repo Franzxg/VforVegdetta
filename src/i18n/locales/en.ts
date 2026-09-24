@@ -28,8 +28,11 @@ const en: TranslationShape = {
     subtitle:
       'Scan the barcode and find out instantly with data from Open Food Facts.',
     scanButton: 'Scan',
-    lastScan: 'Last scan',
-    noLastScan: 'No recent scans',
+    recentScans: 'Recent scans',
+    recentScansCount: 'Recent scans ({{count}})',
+    recentScansHint:
+      'Available even without a connection. The last {{limit}} products are kept.',
+    noRecentScans: 'No recent scans: the products you scan will show up here.',
   },
   scan: {
     hint: 'Frame the barcode',
@@ -248,7 +251,7 @@ const en: TranslationShape = {
       'When a product is missing, anyone can suggest it. Volunteers check each proposal by hand before publishing it: approved products take precedence over Open Food Facts data.',
     offlineTitle: 'Even without a connection',
     offlineText:
-      'The app remembers the last 100 scanned products: when you are offline it shows the last saved data, flagging that it may be out of date.',
+      'The app remembers the last {{limit}} scanned products: when you are offline it shows the last saved data, flagging that it may be out of date.',
     disclaimer:
       'Data may contain errors or be incomplete: when in doubt, always check the product label.',
   },

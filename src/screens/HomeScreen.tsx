@@ -6,17 +6,21 @@ import { AppButton } from '../components/AppButton';
 import { ProductImage } from '../components/ProductImage';
 import { VerdictBadge } from '../components/VerdictBadge';
 import type { RootScreenProps } from '../navigation/types';
-import { CacheEntry, getMostRecent } from '../services/scanCache';
+import {
+  CacheEntry,
+  SCAN_CACHE_LIMIT,
+  getRecentScans,
+} from '../services/scanCache';
 import { useTheme } from '../theme/ThemeContext';
 
 export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const [lastScan, setLastScan] = useState<CacheEntry | null>(null);
+  const [recentScans, setRecentScans] = useState<CacheEntry[]>([]);
 
   useFocusEffect(
     useCallback(() => {
-      getMostRecent().then(setLastScan);
+      getRecentScans().then(setRecentScans);
     }, []),
   );
 
@@ -41,37 +45,17 @@ export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
       />
 
       <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>
-        {t('home.lastScan')}
+        {recentScans.length > 0
+          ? t('home.recentScansCount', { count: recentScans.length })
+          : t('home.recentScans')}
       </Text>
-      {lastScan ? (
-        <Pressable
-          accessibilityRole="button"
-          onPress={() =>
-            navigation.navigate('Product', { barcode: lastScan.data.barcode })
-          }
-          style={({ pressed }) => [
-            styles.card,
-            {
-              backgroundColor: colors.background,
-              borderColor: colors.border,
-              opacity: pressed ? 0.8 : 1,
-            },
-          ]}
-        >
-          <View style={styles.cardText}>
-            <Text
-              numberOfLines={2}
-              style={[styles.cardTitle, { color: colors.textPrimary }]}
-            >
-              {lastScan.data.name ?? lastScan.data.barcode}
-            </Text>
-            <Text style={{ color: colors.textSecondary }}>
-              {t('product.barcode', { barcode: lastScan.data.barcode })}
-            </Text>
-          </View>
-          <VerdictBadge compact status={lastScan.data.veganStatus} />
-        </Pressable>
-      ) : (
+      {recentScans.length > 0 && (
+        <Text style={[styles.sectionHint, { color: colors.textSecondary }]}>
+          {t('home.recentScansHint', { limit: SCAN_CACHE_LIMIT })}
+        </Text>
+      )}
+
+      {recentScans.length === 0 ? (
         <View
           style={[
             styles.card,
@@ -79,8 +63,41 @@ export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
           ]}
         >
           <Text style={{ color: colors.textSecondary }}>
-            {t('home.noLastScan')}
+            {t('home.noRecentScans')}
           </Text>
+        </View>
+      ) : (
+        <View style={styles.list}>
+          {recentScans.map(entry => (
+            <Pressable
+              key={entry.data.barcode}
+              accessibilityRole="button"
+              onPress={() =>
+                navigation.navigate('Product', { barcode: entry.data.barcode })
+              }
+              style={({ pressed }) => [
+                styles.card,
+                {
+                  backgroundColor: colors.background,
+                  borderColor: colors.border,
+                  opacity: pressed ? 0.8 : 1,
+                },
+              ]}
+            >
+              <View style={styles.cardText}>
+                <Text
+                  numberOfLines={2}
+                  style={[styles.cardTitle, { color: colors.textPrimary }]}
+                >
+                  {entry.data.name ?? entry.data.barcode}
+                </Text>
+                <Text style={{ color: colors.textSecondary }}>
+                  {t('product.barcode', { barcode: entry.data.barcode })}
+                </Text>
+              </View>
+              <VerdictBadge compact status={entry.data.veganStatus} />
+            </Pressable>
+          ))}
         </View>
       )}
     </ScrollView>
@@ -90,6 +107,8 @@ export function HomeScreen({ navigation }: RootScreenProps<'Home'>) {
 const styles = StyleSheet.create({
   content: {
     padding: 24,
+    // Spazio extra: la barra di navigazione di sistema copre il fondo.
+    paddingBottom: 64,
     flexGrow: 1,
   },
   title: {
@@ -113,7 +132,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 1,
-    marginBottom: 8,
+    marginBottom: 4,
+  },
+  sectionHint: {
+    fontSize: 13,
+    marginBottom: 10,
+  },
+  list: {
+    gap: 10,
   },
   card: {
     borderRadius: 16,

@@ -2,7 +2,7 @@ import type { Product } from '../types/product';
 import { StorageKeys, readJson, writeJson } from './storage';
 
 /** Numero massimo di prodotti conservati; oltre, si elimina il meno recente. */
-export const SCAN_CACHE_LIMIT = 100;
+export const SCAN_CACHE_LIMIT = 50;
 
 export interface CacheEntry {
   data: Product;
@@ -49,12 +49,17 @@ export async function getCached(barcode: string): Promise<CacheEntry | null> {
   return cache[barcode] ?? null;
 }
 
-export async function getMostRecent(): Promise<CacheEntry | null> {
-  const entries = Object.values(await loadCache());
-  if (entries.length === 0) {
-    return null;
-  }
-  return entries.reduce((latest, entry) =>
-    entry.cachedAt > latest.cachedAt ? entry : latest,
-  );
+/** Voci della cache dalla più recente alla meno recente (funzione pura). */
+export function recentEntries(
+  cache: ScanCache,
+  limit: number = SCAN_CACHE_LIMIT,
+): CacheEntry[] {
+  return Object.values(cache)
+    .sort((a, b) => b.cachedAt.localeCompare(a.cachedAt))
+    .slice(0, limit);
+}
+
+/** Prodotti scansionati di recente: gli stessi consultabili offline. */
+export async function getRecentScans(): Promise<CacheEntry[]> {
+  return recentEntries(await loadCache());
 }

@@ -26,8 +26,12 @@ const it = {
     subtitle:
       'Scansiona il codice a barre e scoprilo subito grazie ai dati di Open Food Facts.',
     scanButton: 'Scansiona',
-    lastScan: 'Ultima scansione',
-    noLastScan: 'Nessuna scansione recente',
+    recentScans: 'Ultime scansioni',
+    recentScansCount: 'Ultime scansioni ({{count}})',
+    recentScansHint:
+      'Consultabili anche senza connessione. Vengono conservati gli ultimi {{limit}} prodotti.',
+    noRecentScans:
+      'Nessuna scansione recente: i prodotti che scansioni compariranno qui.',
   },
   scan: {
     hint: 'Inquadra il codice a barre',
@@ -250,7 +254,7 @@ const it = {
       'Quando un prodotto manca, chiunque può proporlo. I volontari verificano ogni proposta a mano prima di pubblicarla: i prodotti approvati hanno la precedenza sui dati di Open Food Facts.',
     offlineTitle: 'Anche senza connessione',
     offlineText:
-      "L'app ricorda gli ultimi 100 prodotti scansionati: se sei offline ti mostra l'ultimo dato salvato, segnalando che potrebbe non essere aggiornato.",
+      "L'app ricorda gli ultimi {{limit}} prodotti scansionati: se sei offline ti mostra l'ultimo dato salvato, segnalando che potrebbe non essere aggiornato.",
     disclaimer:
       "I dati possono contenere errori o essere incompleti: in caso di dubbio controlla sempre l'etichetta del prodotto.",
   },
