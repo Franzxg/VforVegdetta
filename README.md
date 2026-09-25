@@ -57,7 +57,7 @@ esempio precaricati.
 
 - Italiano e inglese, selezionabili dalle impostazioni.
 - Tema chiaro, scuro o automatico (segue il sistema).
-- Splash screen nativa, anche in versione scura.
+- Splash screen nativa.
 - Font [Atkinson Hyperlegible Next](https://www.brailleinstitute.org/freefont/),
   pensato per la massima leggibilità.
 
@@ -120,8 +120,7 @@ progetto tramite gli script npm.
 La scansione del codice a barre usa la fotocamera, quindi conviene un
 telefono Android reale (Android 7.0 o successivo).
 
-1. Attiva le **Opzioni sviluppatore**: Impostazioni → Informazioni sul
-   telefono → tocca 7 volte "Numero build" (su Xiaomi: "Versione MIUI").
+1. Attiva le **Opzioni sviluppatore**.
 2. Nelle Opzioni sviluppatore attiva **Debug USB**.
 3. Solo su Xiaomi (MIUI/HyperOS): attiva anche **Installa tramite USB** e
    **Debug USB (impostazioni di sicurezza)**. Può essere richiesto l'accesso
@@ -438,8 +437,7 @@ Pannello Volontario si aggiungerebbe una coda dedicata a questi prodotti:
 3. assegna il verdetto definitivo, vegano o non vegano.
 
 Nel dettaglio prodotto il verdetto comparirebbe come "verificato con il
-produttore", insieme alla data della verifica. Lo stesso lavoro potrebbe
-aggiornare anche gli additivi segnati come "Forse".
+produttore", insieme alla data della verifica.
 
 **Prodotti non alimentari**
 
